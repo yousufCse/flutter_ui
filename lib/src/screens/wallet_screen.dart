@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 class WalletScreen extends StatelessWidget {
+  static const String PROFILE_IMAGE_PATH = 'assets/images/profile.jpg';
+
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _buildAppBar(),
-      body: Container(
-        child: Text('My Wallet'),
-      ),
+      body: Container(),
     );
   }
 
@@ -24,12 +24,31 @@ class WalletScreen extends StatelessWidget {
         'My Wallet',
         style: TextStyle(
           color: Colors.black,
-          fontWeight: FontWeight.w600
+          fontWeight: FontWeight.w600,
         ),
       ),
       actions: <Widget>[
-        
+        Container(
+          width: 40.0,
+          height: 40.0,
+          margin: EdgeInsets.fromLTRB(0.0, 10.0, 20.0, 10.0),
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            boxShadow: [
+              BoxShadow(color: Colors.grey, blurRadius: 2.0),
+            ],
+            image: DecorationImage(
+              fit: BoxFit.fill,
+              image: AssetImage(PROFILE_IMAGE_PATH),
+            ),
+          ),
+        ),
       ],
     );
+  }
+
+  // Card horizontal list
+  Widget _cardHorizontalList() {
+    return Container();
   }
 }
