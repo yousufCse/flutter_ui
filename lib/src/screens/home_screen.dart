@@ -52,7 +52,10 @@ class _HomeScreenState extends State<HomeScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 ClipRRect(
-                  borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(10.0),
+                    bottomLeft: Radius.circular(10.0),
+                  ),
                   child: Image.asset(
                     object['image'],
                     width: 80.0,
@@ -78,9 +81,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           object['items'].toString(),
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 15.0
-                          ),
+                              fontWeight: FontWeight.w400, fontSize: 15.0),
                         )
                       ],
                     ),
