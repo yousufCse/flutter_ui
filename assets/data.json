@@ -1,0 +1,75 @@
+[
+    {
+        "image": "images/a.jpg",
+        "name": "The Hawkers",
+        "items": [
+            "Burgers",
+            "Chinese",
+            "Fast Food",
+            "Italian",
+            "Juice",
+            "Bangla"
+        ],
+        "minOrder": 20
+    },
+    {
+        "image": "images/b.jpg",
+        "name": "Flipping Noodles",
+        "items": [
+            "Burgers",
+            "Chinese",
+            "Fast Food",
+            "Italian",
+            "Juice"
+        ],
+        "minOrder": 50
+    },
+    {
+        "image": "images/c.jpg",
+        "name": "Pizza Hut",
+        "items": [
+            "Burgers",
+            "Chinese",
+            "Fast Food",
+            "Italian",
+            "Juice"
+        ],
+        "minOrder": 30
+    },
+    {
+        "image": "images/d.jpg",
+        "name": "KFC",
+        "items": [
+            "Burgers",
+            "Chinese",
+            "Fast Food",
+            "Italian",
+            "Juice"
+        ],
+        "minOrder": 70
+    },
+    {
+        "image": "images/a.jpg",
+        "name": "Blue Hill",
+        "items": [
+            "Burgers",
+            "Chinese",
+            "Fast Food",
+            "Italian",
+            "Juice"
+        ],
+        "minOrder": 30
+    },
+    {
+        "image": "images/b.jpg",
+        "name": "Italian Pizza",
+        "items": [
+            "Burgers",
+            "Chinese",
+            "Fast Food",
+            "Italian",
+            "Juice"
+        ],
+        "minOrder": 20
+    }
+]

@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'dart:async';
 
 class HomeScreen extends StatefulWidget {
   createState() {
@@ -24,7 +27,86 @@ class _HomeScreenState extends State<HomeScreen> {
     {'name': 'Chicken', 'image': 'images/d.jpg', 'off': '10'},
   ];
 
+  Future<List<Widget>> createList() async {
+    List<Widget> items = List<Widget>();
+
+    try {
+      String jsonResponse =
+          await DefaultAssetBundle.of(context).loadString('assets/data.json');
+      List<dynamic> dataJSON = json.decode(jsonResponse);
+
+      dataJSON.forEach((object) {
+        items.add(Padding(
+          padding: EdgeInsets.all(8.0),
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.all(Radius.circular(10.0)),
+              color: Colors.white,
+              boxShadow: [
+                BoxShadow(
+                    color: Colors.black12, spreadRadius: 2.0, blurRadius: 5.0)
+              ],
+            ),
+            child: Row(
+              mainAxisSize: MainAxisSize.max,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                ClipRRect(
+                  borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                  child: Image.asset(
+                    object['image'],
+                    width: 80.0,
+                    height: 80.0,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(10.0),
+                  child: Container(
+                    width: 260,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      // mainAxisSize: MainAxisSize.max,
+                      children: <Widget>[
+                        Text(
+                          object['name'],
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 18.0),
+                        ),
+                        SizedBox(height: 10.0),
+                        Text(
+                          object['items'].toString(),
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                            fontWeight: FontWeight.w400,
+                            fontSize: 15.0
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
+        ));
+      });
+      return items;
+    } catch (e) {
+      items.add(Center(
+        child: Container(
+          height: 300,
+          width: 300.0,
+          child: Text('No data found'),
+        ),
+      ));
+
+      return items;
+    }
+  }
+
   Widget build(BuildContext context) {
+    print('render main content');
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
 
@@ -37,6 +119,32 @@ class _HomeScreenState extends State<HomeScreen> {
             children: <Widget>[
               _buildAppBar(),
               _buildFoodGallery(context),
+              Container(
+                color: Colors.white,
+                child: FutureBuilder(
+                  initialData: <Widget>[Text('Hello')],
+                  future: createList(),
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData) {
+                      return Padding(
+                        padding: EdgeInsets.all(10.0),
+                        child: ListView(
+                            primary: false,
+                            shrinkWrap: true,
+                            children: snapshot.data),
+                      );
+                    } else {
+                      return Container(
+                        height: 50.0,
+                        width: 50.0,
+                        child: CircularProgressIndicator(
+                          backgroundColor: Colors.red,
+                        ),
+                      );
+                    }
+                  },
+                ),
+              ),
             ],
           ),
         ),
@@ -123,12 +231,20 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: <Widget>[
                     Text(
                       galleryList[i]['name'],
-                      style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20.0),
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20.0),
                     ),
-                    SizedBox(height: 5.0,),
+                    SizedBox(
+                      height: 5.0,
+                    ),
                     Text(
                       'Upto ${galleryList[i]['off']}% discount',
-                      style: TextStyle(color: Colors.white, fontSize: 15.0, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 15.0,
+                          fontWeight: FontWeight.bold),
                     )
                   ],
                 ),
