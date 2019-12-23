@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
+import './user_screen.dart';
 
 class LockScreen extends StatefulWidget {
   @override
@@ -7,6 +8,13 @@ class LockScreen extends StatefulWidget {
 }
 
 class _LockScreenState extends State<LockScreen> {
+  onUnlockPress() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => UserScreen()),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,11 +43,14 @@ class _LockScreenState extends State<LockScreen> {
   }
 
   Widget _buildShimmerText() {
-    return Text(
-      '> Slide to unlock',
-      style: TextStyle(
-        fontSize: 30.0,
-        fontWeight: FontWeight.bold,
+    return InkWell(
+      onTap: onUnlockPress,
+      child: Text(
+        '> Slide to unlock',
+        style: TextStyle(
+          fontSize: 30.0,
+          fontWeight: FontWeight.bold,
+        ),
       ),
     );
   }
