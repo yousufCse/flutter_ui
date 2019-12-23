@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
+import './list_screen.dart';
 
 class UserScreen extends StatefulWidget {
   @override
@@ -7,6 +8,11 @@ class UserScreen extends StatefulWidget {
 }
 
 class _UserScreenState extends State<UserScreen> {
+  _onButtonPressed() {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => ListScreen()));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,6 +23,11 @@ class _UserScreenState extends State<UserScreen> {
         child: ListView(
           children: <Widget>[
             _buildProfilePicture(),
+            FlatButton(
+              color: Colors.grey,
+              onPressed: _onButtonPressed,
+              child: Text('Goto List'),
+            ),
           ],
         ),
       ),
@@ -43,10 +54,9 @@ class _UserScreenState extends State<UserScreen> {
               child: Text(
                 'Md. Yousuf Ali',
                 style: TextStyle(
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.bold,
-                  backgroundColor: Colors.black
-                ),
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.bold,
+                    backgroundColor: Colors.black),
               ),
             ),
           ),
@@ -56,10 +66,9 @@ class _UserScreenState extends State<UserScreen> {
               child: Text(
                 'yousuf.csebd@gmail.com',
                 style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 15.0,
-                  backgroundColor: Colors.green
-                ),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15.0,
+                    backgroundColor: Colors.green),
               ),
             ),
           ),
