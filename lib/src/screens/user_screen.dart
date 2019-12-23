@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ui/src/screens/youtube_screen.dart';
 import 'package:shimmer/shimmer.dart';
 import './list_screen.dart';
 
@@ -10,7 +11,16 @@ class UserScreen extends StatefulWidget {
 class _UserScreenState extends State<UserScreen> {
   _onButtonPressed() {
     Navigator.push(
-        context, MaterialPageRoute(builder: (context) => ListScreen()));
+      context,
+      MaterialPageRoute(builder: (context) => ListScreen()),
+    );
+  }
+
+  _onYoutubePressed() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => YoutubeScreen()),
+    );
   }
 
   @override
@@ -28,6 +38,10 @@ class _UserScreenState extends State<UserScreen> {
               onPressed: _onButtonPressed,
               child: Text('Goto List'),
             ),
+            RaisedButton(
+              onPressed: _onYoutubePressed,
+              child: Text('Go youtube screen'),
+            )
           ],
         ),
       ),

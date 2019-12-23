@@ -44,6 +44,9 @@ flutter:
     - images/fm2.png
     - images/iphone_new.jpg
     - images/user.png
+    - images/profile.jpg
+    - images/flutter.png
+    - images/dart.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
