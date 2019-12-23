@@ -24,8 +24,8 @@ class _LockScreenState extends State<LockScreen> {
           child: Padding(
             padding: EdgeInsets.only(bottom: 50),
             child: Shimmer.fromColors(
-              baseColor: Colors.black,
-              highlightColor: Colors.grey,
+              baseColor: Colors.red,
+              highlightColor: Colors.purple,
               child: _buildShimmerText(),
             ),
           ),
