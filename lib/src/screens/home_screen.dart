@@ -8,6 +8,22 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: CustomScrollView(
+        slivers: <Widget>[
+          SliverAppBar(
+            title: Text('Floating app bar'),
+            floating: false,
+            flexibleSpace: Placeholder(),
+          ),
+          SliverList(
+            delegate: SliverChildBuilderDelegate(
+              (context, index) => ListTile(title: Text('Item #$index')),
+              childCount: 1000,
+            ),
+          )
+        ],
+      ),
+    );
   }
 }
