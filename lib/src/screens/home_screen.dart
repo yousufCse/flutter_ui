@@ -28,6 +28,9 @@ class _HomeScreenState extends State<HomeScreen> {
  onPressedSizeTransition() {
     Navigator.push(context, SizePageRoute(page: ItemDetailsScreen()));
   }
+ onPressedFadeTransition() {
+    Navigator.push(context, FadePageRoute(page: ItemDetailsScreen()));
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,6 +58,10 @@ class _HomeScreenState extends State<HomeScreen> {
            RaisedButton(
             onPressed: onPressedSizeTransition,
             child: Text('Size Transition'),
+          ),
+           RaisedButton(
+            onPressed: onPressedFadeTransition,
+            child: Text('Fade Transition'),
           ),
         ],
       ),
