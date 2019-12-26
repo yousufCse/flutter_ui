@@ -13,7 +13,7 @@ class SlideLeftPageRoute extends PageRouteBuilder {
                   Animation<double> secondaryAnimation,
                   Widget child) =>
               SlideTransition(
-            position: Tween<Offset>(begin: Offset(1, 0), end: Offset.zero)
+            position: Tween<Offset>(begin: Offset(1, 0), end: Offset.zero,)
                 .animate(animatoin),
             child: child,
           ),

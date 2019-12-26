@@ -17,6 +17,11 @@ class _HomeScreenState extends State<HomeScreen> {
   onPressedSlideLeftTransition() {
     Navigator.push(context, SlideLeftPageRoute(page: ItemDetailsScreen()));
   }
+
+  onPressedScaleTransition() {
+    Navigator.push(context, ScalePageRoute(page: ItemDetailsScreen()));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,7 +37,11 @@ class _HomeScreenState extends State<HomeScreen> {
           RaisedButton(
             onPressed: onPressedSlideLeftTransition,
             child: Text('Slide Left Transition'),
-          )
+          ),
+           RaisedButton(
+            onPressed: onPressedScaleTransition,
+            child: Text('Scale Transition'),
+          ),
         ],
       ),
     );
