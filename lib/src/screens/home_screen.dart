@@ -9,8 +9,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
-  onPressedSlideTransiton(){
+  onPressedSlideTransiton() {
     Navigator.push(context, SlideRightPageRoute(page: ItemDetailsScreen()));
   }
 
@@ -22,15 +21,18 @@ class _HomeScreenState extends State<HomeScreen> {
     Navigator.push(context, ScalePageRoute(page: ItemDetailsScreen()));
   }
 
- onPressedRotationTransition() {
+  onPressedRotationTransition() {
     Navigator.push(context, RotationPageRoute(page: ItemDetailsScreen()));
   }
- onPressedSizeTransition() {
+
+  onPressedSizeTransition() {
     Navigator.push(context, SizePageRoute(page: ItemDetailsScreen()));
   }
- onPressedFadeTransition() {
+
+  onPressedFadeTransition() {
     Navigator.push(context, FadePageRoute(page: ItemDetailsScreen()));
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,22 +49,29 @@ class _HomeScreenState extends State<HomeScreen> {
             onPressed: onPressedSlideLeftTransition,
             child: Text('Slide Left Transition'),
           ),
-           RaisedButton(
+          RaisedButton(
             onPressed: onPressedScaleTransition,
             child: Text('Scale Transition'),
           ),
-           RaisedButton(
+          RaisedButton(
             onPressed: onPressedRotationTransition,
             child: Text('Rotation Transition'),
           ),
-           RaisedButton(
+          RaisedButton(
             onPressed: onPressedSizeTransition,
             child: Text('Size Transition'),
           ),
-           RaisedButton(
+          RaisedButton(
             onPressed: onPressedFadeTransition,
             child: Text('Fade Transition'),
           ),
+          InkWell(
+            child: Container(
+              height: 80.0,
+              width: 80.0,
+              child: Image.asset('images/a.jpg'),
+            ),
+          )
         ],
       ),
     );
