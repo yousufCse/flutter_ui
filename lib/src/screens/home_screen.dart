@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import './item_details_screen.dart';
+import '../page_route/page_route.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -8,30 +9,31 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  _onTapImage() {
-    // Navigator.push(
-    //     context, MaterialPageRoute(builder: (context) => ItemDetailsScreen()));
 
-    Navigator.push(context, CupertinoPageRoute(builder: (context)=> ItemDetailsScreen()));
+  onPressedSlideTransiton(){
+    Navigator.push(context, SlideRightPageRoute(page: ItemDetailsScreen()));
   }
 
+  onPressedSlideLeftTransition() {
+    Navigator.push(context, SlideLeftPageRoute(page: ItemDetailsScreen()));
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: InkWell(
-          onTap: _onTapImage,
-          child: Container(
-              height: 100.0,
-              width: 100.0,
-              child: Hero(
-                tag: 'imageHero',
-                child: Image.asset(
-                  'images/a.jpg',
-                  fit: BoxFit.cover,
-                ),
-              )),
-        ),
+      appBar: AppBar(
+        title: Text('Page Route Animation'),
+      ),
+      body: ListView(
+        children: <Widget>[
+          RaisedButton(
+            onPressed: onPressedSlideTransiton,
+            child: Text('Slide Right Transition'),
+          ),
+          RaisedButton(
+            onPressed: onPressedSlideLeftTransition,
+            child: Text('Slide Left Transition'),
+          )
+        ],
       ),
     );
   }
