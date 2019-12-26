@@ -22,6 +22,9 @@ class _HomeScreenState extends State<HomeScreen> {
     Navigator.push(context, ScalePageRoute(page: ItemDetailsScreen()));
   }
 
+ onPressedRotationTransition() {
+    Navigator.push(context, RotationPageRoute(page: ItemDetailsScreen()));
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,6 +44,10 @@ class _HomeScreenState extends State<HomeScreen> {
            RaisedButton(
             onPressed: onPressedScaleTransition,
             child: Text('Scale Transition'),
+          ),
+           RaisedButton(
+            onPressed: onPressedRotationTransition,
+            child: Text('Rotation Transition'),
           ),
         ],
       ),
