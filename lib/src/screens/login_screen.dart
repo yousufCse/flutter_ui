@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../widgets/text_field.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -12,8 +13,19 @@ class _LoginScreenState extends State<LoginScreen> {
       body: Container(
         padding: EdgeInsets.fromLTRB(32, 40, 32, 0),
         color: Color(0xFFF2F2F2),
-        child: Column(
-          children: <Widget>[_buildHeader(), _buildTextField()],
+        child: Stack(
+          children: <Widget>[
+            Column(
+              children: <Widget>[
+                _buildHeader(),
+                _buildTextField(),
+                _buildForgotContent(),
+                _buildLoginButton(),
+                _buildRegisterContent(),
+              ],
+            ),
+            _buildSslLogo()
+          ],
         ),
       ),
     );
@@ -121,7 +133,120 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  Widget _buildTextField(){
-    return Container();
+  Widget _buildTextField() {
+    return Container(
+        margin: EdgeInsets.only(top: 40.0),
+        child: Column(
+          children: <Widget>[
+            TextFieldX(
+              hintText: 'Enter your user id',
+              labelText: 'User Id',
+            ),
+            SizedBox(height: 16),
+            TextFieldX(
+              hintText: 'Enter your password',
+              labelText: 'Password',
+            ),
+          ],
+        ));
+  }
+
+  _buildForgotContent() {
+    return Container(
+      margin: EdgeInsets.only(top: 12.0, left: 20.0, right: 20.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          InkWell(
+            onTap: () {},
+            child: Text('Forgot ID or Password?',
+                style: TextStyle(
+                  fontSize: 12,
+                  color: Color(0xFF2F80ED),
+                )),
+          ),
+          InkWell(
+            onTap: () {},
+            child: Text('Help?',
+                style: TextStyle(
+                  fontSize: 12,
+                  color: Color(0xFF2F80ED),
+                )),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildLoginButton() {
+    return Container(
+        margin: EdgeInsets.only(top: 24.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            InkWell(
+              onTap: () {},
+              child: Container(
+                height: 48.0,
+                width: 230.0,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20.0),
+                    color: Color(0xFF2F80ED),
+                    boxShadow: [
+                      BoxShadow(blurRadius: 1.0, color: Colors.black)
+                    ]),
+                child: Center(
+                  child: Text(
+                    'Login',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.fingerprint),
+              iconSize: 48,
+              color: Color(0xFF2F80ED),
+            )
+          ],
+        ));
+  }
+
+  Widget _buildRegisterContent() {
+    return Container(
+      margin: EdgeInsets.only(top: 12),
+      child: Row(
+        children: <Widget>[
+          Text(
+            'Don\'t have any account?',
+            style: TextStyle(fontSize: 12, color: Colors.grey),
+          ),
+          SizedBox(width: 8),
+          InkWell(
+              onTap: () {},
+              child: Text('Register',
+                  style: TextStyle(fontSize: 12, color: Color(0xFF2F80ED))))
+        ],
+      ),
+    );
+  }
+
+  Widget _buildSslLogo() {
+    return Align(
+      alignment: Alignment.bottomCenter,
+      child: Padding(
+          padding: EdgeInsets.only(bottom: 48.0),
+          child: Image.asset(
+            'images/ic_ssl.png',
+            height: 30.0,
+            width: 72.0,
+            fit: BoxFit.cover,
+          )),
+    );
   }
 }
