@@ -10,6 +10,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Container(
         padding: EdgeInsets.fromLTRB(32, 40, 32, 0),
         color: Color(0xFFF2F2F2),
@@ -141,11 +142,13 @@ class _LoginScreenState extends State<LoginScreen> {
             TextFieldX(
               hintText: 'Enter your user id',
               labelText: 'User Id',
+              icon: Icons.person_outline,
             ),
             SizedBox(height: 16),
             TextFieldX(
               hintText: 'Enter your password',
               labelText: 'Password',
+              icon: Icons.lock_outline,
             ),
           ],
         ));

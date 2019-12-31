@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 class TextFieldX extends StatefulWidget {
   final String hintText;
   final String labelText;
+  final IconData icon;
 
-  TextFieldX({this.hintText, this.labelText}) {}
+  TextFieldX({this.hintText, this.labelText, this.icon}) {}
 
   @override
   _TextFieldXState createState() => _TextFieldXState();
@@ -22,6 +23,7 @@ class _TextFieldXState extends State<TextFieldX> {
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(25.0),
           ),
+          prefixIcon: widget.icon == null ? null : Icon(widget.icon),
         ),
       ),
     );
