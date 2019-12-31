@@ -221,7 +221,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Widget _buildRegisterContent() {
     return Container(
-      margin: EdgeInsets.only(top: 12),
+      margin: EdgeInsets.only(top: 12, left: 16.0),
       child: Row(
         children: <Widget>[
           Text(
