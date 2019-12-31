@@ -21,7 +21,7 @@ class _TextFieldXState extends State<TextFieldX> {
           labelText: widget.labelText,
           fillColor: Colors.red,
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(25.0),
+            borderRadius: BorderRadius.circular(24.0),
           ),
           prefixIcon: widget.icon == null ? null : Icon(widget.icon),
         ),
