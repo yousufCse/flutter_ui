@@ -184,29 +184,31 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            InkWell(
-              onTap: () {},
-              child: Container(
-                height: 48.0,
-                width: 230.0,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20.0),
-                    color: Color(0xFF2F80ED),
-                    boxShadow: [
-                      BoxShadow(blurRadius: 1.0, color: Colors.black)
-                    ]),
-                child: Center(
-                  child: Text(
-                    'Login',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 14,
-                      fontWeight: FontWeight.bold,
+            Expanded(
+              child: InkWell(
+                onTap: () {},
+                child: Container(
+                  height: 48.0,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(24.0),
+                      color: Color(0xFF2F80ED),
+                      boxShadow: [
+                        BoxShadow(blurRadius: 1.0, color: Colors.black)
+                      ]),
+                  child: Center(
+                    child: Text(
+                      'Login',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ),
               ),
             ),
+            SizedBox(width: 8),
             IconButton(
               onPressed: () {},
               icon: Icon(Icons.fingerprint),
