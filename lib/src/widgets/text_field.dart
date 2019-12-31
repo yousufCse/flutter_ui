@@ -15,11 +15,17 @@ class _TextFieldXState extends State<TextFieldX> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 48,
+      // decoration: BoxDecoration(
+      //   borderRadius: BorderRadius.circular(24.0),
+      //   boxShadow: [BoxShadow(blurRadius: 1.0, color: Colors.black)],
+      // ),
       child: TextField(
         decoration: InputDecoration(
+          fillColor: Colors.white,
+          filled: true,
           hintText: widget.hintText,
           labelText: widget.labelText,
-          fillColor: Colors.red,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(24.0),
           ),
