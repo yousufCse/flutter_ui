@@ -13,6 +13,9 @@ description: A new Flutter project.
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
 version: 1.0.0+1
 
+flutter_localizations:
+   sdk: flutter
+
 environment:
   sdk: ">=2.1.0 <3.0.0"
 
@@ -42,6 +45,8 @@ flutter:
   
   assets:
     - images/
+    - assets/locale/localization_en.json
+    - assets/locale/localization_bn.json
 
   # To add assets to your application, add an assets section, like this:
   # assets:
