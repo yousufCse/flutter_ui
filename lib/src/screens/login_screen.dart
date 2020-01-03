@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../widgets/text_field.dart';
+import '../widgets/switch.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -82,57 +83,12 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   Widget _buildLanguage() {
-    return Container(
-      height: 32,
-      width: 72,
-      decoration: BoxDecoration(borderRadius: BorderRadius.circular(10.0)),
-      child: Row(
-        children: <Widget>[
-          _buildLanguageBar(selected: true, title: 'ENG'),
-          _buildLanguageBar(selected: false, title: 'BAN')
-        ],
-      ),
-    );
-  }
-
-  Widget _buildLanguageBar({selected: bool, title: String}) {
-    final borderRadius = 20.0;
-
-    return Container(
-      width: 36.0,
-      height: 32.0,
-      decoration: selected
-          ? BoxDecoration(
-              gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [Color(0xFF2F80ED), Color(0xFF3E259B)]),
-              borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(borderRadius),
-                  bottomLeft: Radius.circular(borderRadius)),
-              boxShadow: [
-                  BoxShadow(
-                    color: Colors.black,
-                    blurRadius: 1.0,
-                  )
-                ])
-          : BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(borderRadius),
-                  bottomRight: Radius.circular(borderRadius)),
-              boxShadow: [
-                  BoxShadow(color: Color(0x14000000), blurRadius: 1.0),
-                ]),
-      child: Center(
-        child: Text(
-          title,
-          style: TextStyle(
-              color: selected ? Colors.white : Colors.black,
-              fontWeight: FontWeight.bold,
-              fontSize: 10),
-        ),
-      ),
+    return SwitchX(
+      titleLeft: 'ENG',
+      titleRight: 'BAN',
+      onChanged: (bool isSwitched) {
+        print('onvalue change: $isSwitched');
+      },
     );
   }
 
