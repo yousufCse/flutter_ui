@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../widgets/text_field.dart';
 import '../widgets/switch.dart';
+import '../locale/app_translations.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -50,7 +51,7 @@ class _LoginScreenState extends State<LoginScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Text(
-          'Login',
+          AppTranslations.of(context).text("label_login"),
           style: TextStyle(
               fontSize: 24,
               color: Color(0xFF333333),

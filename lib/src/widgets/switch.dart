@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../locale/application.dart';
 
 class SwitchX extends StatefulWidget {
   final String titleLeft;
@@ -14,11 +15,26 @@ class SwitchX extends StatefulWidget {
 class _SwitchXState extends State<SwitchX> {
   bool isSwitched = true;
 
+  static final List<String> languagesList = application.supportedLanguages;
+  static final List<String> languageCodesList =
+      application.supportedLanguagesCodes;
+
+  final Map<dynamic, dynamic> languagesMap = {
+    languagesList[0]: languageCodesList[0],
+    languagesList[1]: languageCodesList[1],
+  };
+
   _onChanged() {
     setState(() {
       isSwitched = !isSwitched;
     });
     widget.onChanged(isSwitched);
+
+    if (isSwitched) {
+      application.onLocaleChanged(Locale(languagesMap[languagesList[0]]));
+    } else {
+      application.onLocaleChanged(Locale(languagesMap[languagesList[1]]));
+    }
   }
 
   @override
